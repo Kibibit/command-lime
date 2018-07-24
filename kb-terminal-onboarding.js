@@ -48,7 +48,8 @@
 
     return this;
 
-    function runStep(command) {
+    function runStep(command, options) {
+      options = options || {};
       let step = stepsArray[currentStep];
 
       const isWildCard = _.endsWith(step.command, ' *');
@@ -70,6 +71,10 @@
 
         if (_.isBoolean(output) && !output) {
           return;
+        }
+        
+        if (options.clearOnEveryStep) {
+         this.clear(); 
         }
         
         currentStep++;
