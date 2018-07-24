@@ -74,7 +74,9 @@
           return;
         }
         
-        if (options.clearOnEveryStep) {
+        const clearIt = _.boolean(step.clear) ? step.clear : options.clearOnEveryStep;
+        
+        if (clearIt) {
          this.clear(); 
         }
         
