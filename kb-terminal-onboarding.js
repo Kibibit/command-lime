@@ -24,7 +24,9 @@
     txt: txt
   };
 
-  $.fn.terminalOnboarding = function (stepsArray) {
+  $.fn.terminalOnboarding = function (stepsArray, options) {
+    options = options || {};
+    
     let currentStep = 0;
 
     if (!this.terminal || !_.isFunction(this.terminal)) {
@@ -48,8 +50,7 @@
 
     return this;
 
-    function runStep(command, options) {
-      options = options || {};
+    function runStep(command) {
       let step = stepsArray[currentStep];
 
       const isWildCard = _.endsWith(step.command, ' *');
