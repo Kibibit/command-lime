@@ -99,7 +99,7 @@
   }
 
   function cleanCommand(command, notParams) {
-    command.replace(notParams, '').trim().split(/\s/)
+    return command.replace(notParams, '').trim().split(/\s/) || [];
   }
 
 }(jQuery));
