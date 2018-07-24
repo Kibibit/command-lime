@@ -48,7 +48,7 @@
       height: 400
     });
     
-    container.attr('data-title', stepsArray[currentStep] || 'terminal');
+    container.attr('data-title', stepsArray[currentStep].name || 'terminal');
 
     $('#test').text('this is what I got! ' + JSON.stringify(stepsArray));
 
