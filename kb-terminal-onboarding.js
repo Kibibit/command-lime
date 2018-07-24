@@ -47,6 +47,8 @@
       name: `step ${currentStep}`,
       height: 400
     });
+    
+    container.attr('data-title', stepsArray[currentStep] || 'terminal');
 
     $('#test').text('this is what I got! ' + JSON.stringify(stepsArray));
 
@@ -62,10 +64,6 @@
       const isCommandPassedStepCommand = isWildCard ?
         _.startsWith(command, everythingBesidesWildCard) :
         command === step.command;
-      
-      if (step && step.name) {
-        container.attr('data-title', step.name)
-      }
 
       if (step && isCommandPassedStepCommand) {
         const output = _.isFunction(step.output) ?
@@ -89,6 +87,10 @@
         currentStep++;
 
         nextStep = stepsArray[currentStep];
+        
+        if (nextStep && nextStep.name) {
+          container.attr('data-title', nextStep.name);
+        }
 
         if (currentStep !== 0 && nextStep && nextStep.greetings) {
           this.echo(nextStep.greetings);
