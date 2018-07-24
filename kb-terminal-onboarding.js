@@ -74,7 +74,7 @@
           return;
         }
         
-        const clearIt = _.boolean(step.clear) ? step.clear : options.clearOnEveryStep;
+        const clearIt = _.isBoolean(step.clear) ? step.clear : options.clearOnEveryStep;
         
         if (clearIt) {
          this.clear(); 
