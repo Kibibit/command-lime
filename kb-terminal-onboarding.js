@@ -64,7 +64,14 @@
           step.output.call(this, cleanCommand(command, everythingBesidesWildCard)) :
           step.output;
 
-        this.echo(output || '');
+        if (_.isString(output)) {
+          this.echo(output || '');
+        }
+
+        if (_.isBoolean(output) && !output) {
+          return;
+        }
+        
         currentStep++;
 
         nextStep = stepsArray[currentStep];
@@ -99,7 +106,8 @@
   }
 
   function cleanCommand(command, notParams) {
-    return command.replace(notParams, '').trim().split(/\s/) || [];
+    const res = command.replace(notParams, '').trim().split(/\s/) || [];
+    return res.filter((str) => str !== '');
   }
 
 }(jQuery));
