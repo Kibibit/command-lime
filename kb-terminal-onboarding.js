@@ -87,6 +87,9 @@
             name: `step ${currentStep}`,
             height: 250
           });
+        } else {
+         // stop terminal interaction
+         this.freeze(true); 
         }
       } else {
         if (GENERALMAPPER[command]) {
