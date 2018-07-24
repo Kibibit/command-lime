@@ -25,6 +25,8 @@
   };
 
   $.fn.terminalOnboarding = function (stepsArray, options) {
+    let container = this;
+
     options = options || {};
     
     let currentStep = 0;
@@ -60,6 +62,10 @@
       const isCommandPassedStepCommand = isWildCard ?
         _.startsWith(command, everythingBesidesWildCard) :
         command === step.command;
+      
+      if (step && step.name) {
+        container.attr('data-title', step.name)
+      }
 
       if (step && isCommandPassedStepCommand) {
         const output = _.isFunction(step.output) ?
