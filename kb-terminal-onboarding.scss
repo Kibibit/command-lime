@@ -1,0 +1,65 @@
+$br: 7px;
+$s: 12px;
+
+.terminal {
+  --color: #b9b5b8;
+  --background: #0f3642;
+}
+
+.kb-terminal-demo {
+  --background: #0f3642;
+  background-color: #0f3642;
+  overflow-y: visible;
+  padding-bottom: 10px;
+  box-shadow: 
+    0 0 0 1px rgba(0, 0, 0, 0.05), 
+    0 0 30px 1px rgba(0, 0, 0, 0.2);
+  position: relative;
+  margin: 10px;
+  border-radius: 0 0 $br $br;
+  margin-top: 35px;
+
+  &::before {
+    border-radius: $br $br 0 0;
+    position: absolute;
+    content: attr(data-title);
+    display: block;
+    width: 100%;
+    text-overflow: ellipsis;
+    padding: 0 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    color: #4c3436;
+    font-size: 1em;
+    background: linear-gradient(0deg, #d8d8d8, #ececec);
+    top: -25px;
+    left: 0;
+    font-family: "PT Sans", sans-serif;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -18px;
+    left: 10px;
+    width: $s;
+    height: $s;
+    background: #f95c5b;
+    border-radius: 100%;
+    box-shadow: 
+      0 0 0 1px #da3d42, 
+      ($s+10px) 0 0 0 #fabe3b, 
+      ($s+10px) 0 0 1px #ecb03e,
+      ($s+10px)*2 0 0 0 #38cd46, 
+      ($s+10px)*2 0 0 1px #2eae32;
+  }
+}
+
+.terminal, .cmd, .terminal .terminal-output div div, .cmd .prompt {
+  font-size: 16px;
+  line-height: 20px;
+  font-family: 'Ubuntu Mono', monospace;
+}
