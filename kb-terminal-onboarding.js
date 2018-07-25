@@ -40,13 +40,18 @@
     const inner = $('<div class="kb-terminal-inner"></div>');
 
     inner.appendTo(this);
-
-    inner.terminal(runStep, {
+    
+    let termOptions = {
       greetings: stepsArray[currentStep].greetings,
       prompt: stepsArray[currentStep].prompt,
-      name: `step ${currentStep}`,
-      height: 400
-    });
+      name: `step ${currentStep}`
+    };
+    
+    if (options.height) {
+      termOptions.height = options.height;
+    }
+
+    inner.terminal(runStep, termOptions);
     
     container.attr('data-title', stepsArray[currentStep].name || 'terminal');
 
