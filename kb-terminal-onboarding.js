@@ -45,8 +45,12 @@
             stepsArray[currentStep].prompt.call(this) :
             stepsArray[currentStep].prompt;
     
+    const greetingsOutput = _.isFunction(stepsArray[currentStep].greetings) ?
+            stepsArray[currentStep].greetings.call(this) :
+            stepsArray[currentStep].greetings;
+    
     let termOptions = {
-      greetings: stepsArray[currentStep].greetings,
+      greetings: greetingsOutput,
       prompt: promptOutput,
       name: `step ${currentStep}`
     };
@@ -102,7 +106,11 @@
         }
 
         if (currentStep !== 0 && nextStep && nextStep.greetings) {
-          this.echo(nextStep.greetings);
+          const greetingsOutput = _.isFunction(nextStep.greetings) ?
+            nextStep.greetings.call(this) :
+            nextStep.greetings;
+
+          this.echo(greetingsOutput);
         }
 
         if (nextStep) {
