@@ -72,7 +72,7 @@
 
       const isWildCard = _.endsWith(step.command, ' *');
 
-      const everythingBesidesWildCard = step.command.replace(/ \*$/gm, '');
+      const everythingBesidesWildCard = step.command.replace(/\*$/gm, '').trim();
 
       const isCommandPassedStepCommand = isWildCard ?
         _.startsWith(command, everythingBesidesWildCard) :
