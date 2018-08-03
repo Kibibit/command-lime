@@ -41,9 +41,9 @@
 
     inner.appendTo(this);
     
-    const promptOutput = _.isFunction(nextStep.prompt) ?
-            nextStep.prompt.call(this) :
-            nextStep.prompt;
+    const promptOutput = _.isFunction(stepsArray[currentStep].prompt) ?
+            stepsArray[currentStep].prompt.call(this) :
+            stepsArray[currentStep].prompt;
     
     let termOptions = {
       greetings: stepsArray[currentStep].greetings,
