@@ -41,9 +41,13 @@
 
     inner.appendTo(this);
     
+    const promptOutput = _.isFunction(nextStep.prompt) ?
+            nextStep.prompt.call(this) :
+            nextStep.prompt;
+    
     let termOptions = {
       greetings: stepsArray[currentStep].greetings,
-      prompt: stepsArray[currentStep].prompt,
+      prompt: promptOutput,
       name: `step ${currentStep}`
     };
     
@@ -108,7 +112,7 @@
 
           this.push(runStep, {
             greetings: nextStep.greetings,
-            prompt: nextStep.prompt,
+            prompt: promptOutput,
             name: `step ${currentStep}`,
             height: 250
           });
