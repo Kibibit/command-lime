@@ -70,7 +70,7 @@
     function runStep(command) {
       let step = stepsArray[currentStep];
 
-      const isWildCard = _.endsWith(step.command, ' *');
+      const isWildCard = _.endsWith(step.command, '*');
 
       const everythingBesidesWildCard = step.command.replace(/\*$/gm, '').trim();
 
