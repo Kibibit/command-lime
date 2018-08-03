@@ -102,6 +102,10 @@
         }
 
         if (nextStep) {
+          const promptOutput = _.isFunction(nextStep.prompt) ?
+            nextStep.prompt.call(this) :
+            nextStep.prompt;
+
           this.push(runStep, {
             greetings: nextStep.greetings,
             prompt: nextStep.prompt,
