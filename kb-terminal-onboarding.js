@@ -72,7 +72,7 @@
 
       if (step && isCommandPassedStepCommand) {
         const output = _.isFunction(step.output) ?
-          step.output.call(this, cleanCommand(command, everythingBesidesWildCard.split(' ')) :
+          step.output.call(this, cleanCommand(command, everythingBesidesWildCard.split(' '))) :
           step.output;
 
         if (_.isString(output)) {
