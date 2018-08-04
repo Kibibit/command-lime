@@ -90,8 +90,8 @@
         }
 
         if (_.isBoolean(output) && !output) {
-          const globalFunction = checkGlobalFunctions(command);
-          return isWildCard && globalFunction ? runStep(command, globalFunction) : null;
+          const globalFunction = checkGlobalFunctions(command); step.output.call(this, c
+          return isWildCard && globalFunction ? runStep.call(this, [command, globalFunction]) : null;
         }
         
         const clearIt = _.isBoolean(step.clear) ? step.clear : options.clearOnEveryStep;
@@ -138,7 +138,7 @@
       } else {
         const foundGlobalFunction = checkGlobalFunctions(command);
         if (foundGlobalFunction) {
-          return runStep(command, foundGlobalFunction);
+          return runStep.call(this, [command, foundGlobalFunction]);
         } else {
           this.echo(txt.red(`command not found: ${command}`));
         }
