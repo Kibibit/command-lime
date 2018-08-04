@@ -173,11 +173,11 @@
     });
     
     if (exactMatch) {
-      return _.assign.apply([exactMatch, { command: commandName }]);
+      return _.assign.apply(_, [exactMatch, { command: commandName }]);
     }
     
     if (wildCardMatch) {
-      return _.assign.apply([wildCardMatch, { command: commandName }]);
+      return _.assign.apply(_, [wildCardMatch, { command: commandName }]);
     }
     
     return;
