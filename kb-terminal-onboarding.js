@@ -21,7 +21,8 @@
 
   $.cliLit = {
     COLORS: COLORS,
-    txt: txt
+    txt: txt,
+    globalCommands: {}
   };
 
   $.fn.terminalOnboarding = function (stepsArray, options) {
@@ -67,8 +68,9 @@
 
     return this;
 
-    function runStep(command) {
-      let step = stepsArray[currentStep];
+    function runStep(command, step) {
+      const noNext = step;
+      step = step || stepsArray[currentStep];
 
       const isWildCard = _.endsWith(step.command, '*');
 
@@ -88,13 +90,18 @@
         }
 
         if (_.isBoolean(output) && !output) {
-          return;
+          const globalFunction = checkGlobalFunctions(command);
+          return isWildCard && globalFunction ? runStep(command, globalFunction) : null;
         }
         
         const clearIt = _.isBoolean(step.clear) ? step.clear : options.clearOnEveryStep;
         
         if (clearIt) {
          this.clear(); 
+        }
+        
+        if (noNext) {
+          return;
         }
         
         currentStep++;
@@ -129,8 +136,9 @@
          this.freeze(true); 
         }
       } else {
-        if (GENERALMAPPER[command]) {
-          this.echo(GENERALMAPPER[command]);
+        const foundGlobalFunction = checkGlobalFunctions(command);
+        if (foundGlobalFunction) {
+          return runStep(command, foundGlobalFunction);
         } else {
           this.echo(txt.red(`command not found: ${command}`));
         }
@@ -148,6 +156,23 @@
   function cleanCommand(command, notParams) {
     const res = command.replace(notParams, '').trim().split(/\s/) || [];
     return res.filter((str) => str !== '');
+  }
+  
+  function checkGlobalFunctions(command) {
+    const exactMatch = $.cliLit.globalFunctions[command];
+    let commandName = command;
+    
+    const wildCardMatch = _.find($.cliLit.globalFunctions, (functionObject, functionIdentifier) => {
+      if (_.endsWith(functionIdentifier, '*') && _.startsWith(command, functionIdentifier)) {
+        commandName = functionIdentifier;
+        
+        return true;
+      }
+      
+      return false; 
+    });
+    
+    return _.assign.apply([exactMatch || wildCardMatch, { command: commandName }]);
   }
 
 }(jQuery));
