@@ -172,7 +172,15 @@
       return false; 
     });
     
-    return exactMatch || wildCardMatch ? _.assign.apply([exactMatch || wildCardMatch, { command: commandName }]) : null;
+    if (exactMatch) {
+      return _.assign.apply([exactMatch, { command: commandName }]);
+    }
+    
+    if (wildCardMatch) {
+      return _.assign.apply([wildCardMatch, { command: commandName }]);
+    }
+    
+    return;
   }
 
 }(jQuery));
