@@ -69,7 +69,7 @@
     return this;
 
     function runStep(command, step) {
-      const noNext = step;
+      const noNext = _.isObject(step) && step.command;
       step = step || stepsArray[currentStep];
 
       const isWildCard = _.endsWith(step.command, '*');
