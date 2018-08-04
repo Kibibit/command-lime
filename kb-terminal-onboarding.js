@@ -172,7 +172,7 @@
       return false; 
     });
     
-    return _.assign.apply([exactMatch || wildCardMatch, { command: commandName }]);
+    return exactMatch || wildCardMatch ? _.assign.apply([exactMatch || wildCardMatch, { command: commandName }]) : null;
   }
 
 }(jQuery));
