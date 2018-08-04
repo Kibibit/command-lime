@@ -90,7 +90,7 @@
         }
 
         if (_.isBoolean(output) && !output) {
-          const globalFunction = checkGlobalFunctions(command); step.output.call(this, c
+          const globalFunction = checkGlobalFunctions(command);
           return isWildCard && globalFunction ? runStep.call(this, [command, globalFunction]) : null;
         }
         
