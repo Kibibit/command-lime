@@ -1,0 +1,19 @@
+{
+  "name": "@kibibit/command-lime",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">   <a href=\"https://github.com/Kibibit/configit\" target=\"blank\"><img src=\"logo.png\" width=\"150\" ></a>   <h2 align=\"center\">     @kibibit/command-lime   </h2> </p> <p align=\"center\">  <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section --> <a href=\"#contributors-\"><img src=\"https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square\" alt=\"All Contributors\"></a> <!-- ALL-CONTRIBUTORS-BADGE:END --> </p> <p align=\"center\">   Show what your CLI application can do using this terminal onboarding mock </p> <hr>",
+  "main": "command-lime.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kibibit/kb-terminal-onboarding.git"
+  },
+  "author": "thatkookooguy <neilkalman@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kibibit/kb-terminal-onboarding/issues"
+  },
+  "homepage": "https://github.com/Kibibit/kb-terminal-onboarding#readme"
+}
