@@ -4,7 +4,7 @@ $(document).ready(function() {
     setTimeout(() => {
 
       const headers = [
-        '#section01 .title',
+//         '#section01 .title',
         '#section02 .title',
         '#section03 .title',
       ];
