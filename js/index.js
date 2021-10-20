@@ -114,7 +114,7 @@ Is this ok? (yes) `,
       return true;
     }
   }], {
-    height: 150,
+    height: 250,
     clearOnEveryStep: false
   });
 
@@ -137,6 +137,7 @@ Is this ok? (yes) `,
       return true;
     }
   }], {
+    height: 250,
     clearOnEveryStep: true
   });
 
