@@ -15,7 +15,7 @@ $(document).ready(function() {
       headers.forEach(function (header, index) {
 
         // number for highlighting scenes
-        var num = index + 1;
+        var num = index + 2;
 
         // make scene
         new ScrollMagic.Scene({
