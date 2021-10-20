@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://kibibit.io/command-lime/" target="blank"><img src="logo.png" width="150" ></a>
+  <a href="https://kibibit.io/command-lime/" target="blank"><img src="logo-clear.png" width="150" ></a>
   <h2 align="center">
     @kibibit/command-lime
   </h2>
