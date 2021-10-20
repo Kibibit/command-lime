@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/Kibibit/kb-terminal-onboarding/issues"
   },
-  "homepage": "https://github.com/Kibibit/kb-terminal-onboarding#readme",
+  "homepage": "https://kibibit.io/command-lime/",
   "devDependencies": {
     "http-server": "^13.0.2"
   }

@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/Kibibit/configit" target="blank"><img src="logo.png" width="150" ></a>
+  <a href="https://kibibit.io/command-lime/" target="blank"><img src="logo.png" width="150" ></a>
   <h2 align="center">
     @kibibit/command-lime
   </h2>
@@ -13,6 +13,8 @@
   Show what your CLI application can do using this terminal onboarding mock
 </p>
 <hr>
+
+https://kibibit.io/command-lime/
 
 ## Usage
 
