@@ -51,3 +51,7 @@
   line-height: 20px;
   font-family: 'Ubuntu Mono', monospace;
 }
+
+.cmd {
+  display: flex;
+}

@@ -1,17 +1,12 @@
+body,
 html {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Comfortaa', cursive;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-.kb-integrate {
-  margin-bottom: 1.5rem;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #212121;
+  font-family: "Comfortaa", cursive;
+  color: white;
 }
 
 [id^=section] .hero-body {
@@ -28,6 +23,34 @@ body {
   transform: translate3d(0, 0, 0);
 }
 
+.title,
+#kb-main-subtitle {
+  font-family: "Comfortaa", cursive;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Righteous", cursive;
+}
+
+.kb-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.kb-om {
+  width: 80%;
+}
+
+.kb-logo {
+  max-width: 200px;
+}
+
 .hero.is-fullheight > .hero-body {
   padding-top: 0;
   padding-bottom: 0;
@@ -35,41 +58,6 @@ body {
 
 #kb-main-subtitle {
   text-align: center;
-}
-
-.powered-by-block {
-  margin-bottom: 1em;
-}
-
-.powered-by-description {
-  font-size: 0.8em;
-}
-
-a.powered-by {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0.2em;
-  color: white;
-  transition: color 250ms;
-}
-
-.probot-logo {
-  font-family: Roboto,-apple-system,BlinkMacSystemFont,"Helvetica Neue","Segoe UI","Oxygen","Ubuntu","Cantarell","Open Sans",sans-serif;
-  font-weight: 300;
-  color: #00B0D8;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-}
-
-.probot-logo:before {
-  content: '';
-  display: inline-block;
-  height: 2em;
-  background-image: url(https://github.com/probot.png);
-  width: 2em;
-  background-size: contain;
 }
 
 .github-logo {
@@ -120,93 +108,7 @@ footer.footer a:hover {
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  padding-right: 5em;
-  transition: padding 250ms;
+  /* padding-right: 5em; */
+  /* transition: padding 250ms; */
   margin-bottom: 2rem;
-}
-.logo-container.bot {
-  padding-right: 0;
-}
-
-.tdd-logo {
-  position: relative;
-  font-family: 'Major Mono Display', monospace;
-  font-size: 5rem;
-  background: #4776E6;
-  background: linear-gradient(to top, #8E54E9, #4776E6);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.tdd-logo:before, .tdd-logo:after {
-  content: 'D';
-  transition: opacity 250ms, transform 250ms;
-  transition-delay: 200ms;
-  display: inline-block;
-  background: #4776E6;
-  background: linear-gradient(to top, #8E54E9, #4776E6);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.tdd-logo:not(.bot):before {
-  opacity: 0;
-}
-.tdd-logo.bot:before {
-  transform: rotate(180deg) translate3d(0, -8px, 0);
-}
-.tdd-logo.bot .extra-D {
-  max-width: 0;
-  opacity: 0;
-}
-.tdd-logo .extra-D {
-  max-width: 100px;
-  display: inline-block;
-  transition: all 250ms;
-  background: #4776E6;
-  background: linear-gradient(to top, #8E54E9, #4776E6);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.tdd-logo.bot .bot-eye {
-  max-height: 1.5em;
-}
-.tdd-logo.bot .bot-mouth {
-  height: 1.5em;
-}
-.tdd-logo .bot-mouth {
-  transition: 250ms all;
-  transition-delay: 500ms;
-  height: 0;
-  position: absolute;
-  z-index: 5;
-  transform: translate3d(-50%, 0, 0) rotate(90deg);
-  background: white;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  bottom: -20px;
-  left: 51%;
-  font-size: 0.5em;
-}
-.tdd-logo .bot-eye {
-  transition: all 250ms;
-  transition-delay: 500ms;
-  max-height: 0;
-  position: absolute;
-  bottom: 2.2em;
-  background: whitesmoke;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  z-index: 5;
-  font-size: 0.2em;
-  transform: rotate(-90deg);
-}
-.tdd-logo .bot-eye.right {
-  right: 37%;
-}
-.tdd-logo .bot-eye.left {
-  left: 37%;
 }

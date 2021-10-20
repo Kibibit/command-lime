@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  waitForWebfonts([ 'Major Mono Display' ], function() {
+  waitForWebfonts([ 'Comfortaa', 'Righteous' ], function() {
 
     setTimeout(() => {
 
@@ -7,7 +7,6 @@ $(document).ready(function() {
         '#section01 .title',
         '#section02 .title',
         '#section03 .title',
-        '#section04 .title'
       ];
 
       // Init ScrollMagic
@@ -33,39 +32,12 @@ $(document).ready(function() {
           .addTo(controller);
       });
 
-      setTimeout(() => {
-        $('.logo-container').toggleClass('bot');
-        $('.tdd-logo').toggleClass('bot');
-      }, 1800);
-
     }, 150);
   });
 
 });
 
 hljs.initHighlightingOnLoad();
-
-// TODO: We might change more elements based on first installation
-// like including more specific documentation
-if (getUrlVars().setup_action === 'install') {
-  $('#kb-main-subtitle')
-    .text('Thanks for integrating tdd1t')
-    .addClass('has-text-success');
-
-  $('.kb-hide-on-install').hide();
-
-}
-
-function getUrlVars() {
-  var vars = {};
-
-  window.location.href
-    .replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-      vars[key] = value;
-    });
-
-  return vars;
-}
 
 // https://stackoverflow.com/a/11689060/1788884
 function waitForWebfonts(fonts, callback) {
