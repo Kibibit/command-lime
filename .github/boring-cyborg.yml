@@ -1,0 +1,6 @@
+labelPRBasedOnFilePath:
+
+  Tools:
+    - .github/**/*
+    - .vscode/**/*
+    - .husky/**/*

@@ -1,0 +1,41 @@
+name: Release
+on:
+  push:
+    branches:
+      - main
+      - beta
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BOT_TOKEN }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.lock') }}
+      - name: Install Dependencies
+        run: npm install
+      - name: Build
+        run: npm run build --if-present
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+          GIT_AUTHOR_NAME: k1b1b0t
+          GIT_AUTHOR_EMAIL: k1b1b0t@kibibit.io
+          GIT_COMMITTER_NAME: k1b1b0t
+          GIT_COMMITTER_EMAIL: k1b1b0t@kibibit.io
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm run semantic-release

@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "actboy168.tasks",
+    "codeandstuff.package-json-upgrade",
+    "coenraads.bracket-pair-colorizer",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "jock.svg",
+    "mhutchie.git-graph",
+    "wayou.vscode-todo-highlight",
+    "wix.vscode-import-cost"
+  ]
+}

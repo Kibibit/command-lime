@@ -1,14 +1,45 @@
 {
   "name": "@kibibit/command-lime",
-  "version": "1.0.0",
-  "description": "<p align=\"center\">   <a href=\"https://github.com/Kibibit/configit\" target=\"blank\"><img src=\"logo.png\" width=\"150\" ></a>   <h2 align=\"center\">     @kibibit/command-lime   </h2> </p> <p align=\"center\">  <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section --> <a href=\"#contributors-\"><img src=\"https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square\" alt=\"All Contributors\"></a> <!-- ALL-CONTRIBUTORS-BADGE:END --> </p> <p align=\"center\">   Show what your CLI application can do using this terminal onboarding mock </p> <hr>",
-  "main": "command-lime.js",
+  "version": "0.0.0-development",
+  "description": "Show what your CLI application can do using this terminal onboarding mock",
+  "main": "dist/command-lime.js",
+  "files": [
+    "/dist",
+    "/src"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prebuild": "rimraf lib",
+    "build:compile-styles": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 src/command-lime.scss dist/command-lime.css",
+    "build:css-minify": "cleancss --format breaksWith=lf --output ./dist/command-lime.min.css ./dist/command-lime.css",
+    "build:css": "npm run build:compile-styles && npm run build:css-minify",
+    "build:uglify-js": "uglifyjs --compress --mangle -o dist/command-lime.min.js -- dist/command-lime.js",
+    "build:copy-js": "copyfiles --flat src/command-lime.js dist",
+    "build:js": "npm run build:copy-js && npm run build:uglify-js",
+    "build": "npm run build:js && npm run build:css",
+    "start:dev": "http-server",
+    "watch": "concurrently \"npm:watch:css\" \"npm:watch:js\"",
+    "watch:css": "npm-watch build:css",
+    "watch:js": "npm-watch build:js",
+    "lint": "eslint -c ./.eslintrc.js \"{src,apps,libs,test,examples}/**/*.js\"",
+    "lint:fix": "eslint -c ./.eslintrc.js \"{src,apps,libs,test,examples}/**/*.js\" --fix",
+    "contributors:all": "cross-env HUSKY=0 node ./tools/get-all-contributors.js",
+    "contributors:add": "cross-env HUSKY=0 all-contributors add",
+    "contributors:generate": "cross-env HUSKY=1 all-contributors generate",
+    "prepare": "husky install",
+    "semantic-release:setup": "semantic-release-cli setup",
+    "semantic-release": "cross-env HUSKY=0 semantic-release",
+    "test": "jest",
+    "test:watch": "jest --watch --verbose",
+    "test:cov": "jest --coverage --verbose",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
+  },
+  "watch": {
+    "build:css": "src/*.scss",
+    "build:js": "src/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kibibit/kb-terminal-onboarding.git"
+    "url": "https://github.com/Kibibit/kb-terminal-onboarding.git"
   },
   "author": "thatkookooguy <neilkalman@gmail.com>",
   "license": "MIT",
@@ -17,6 +48,115 @@
   },
   "homepage": "https://kibibit.io/command-lime/",
   "devDependencies": {
-    "http-server": "^13.0.2"
+    "@commitlint/cli": "^13.2.1",
+    "@commitlint/config-angular": "^13.2.0",
+    "@commitlint/config-conventional": "^13.2.0",
+    "@kibibit/eslint-config-javascript": "^1.0.0",
+    "@semantic-release/changelog": "^6.0.0",
+    "@semantic-release/commit-analyzer": "^9.0.1",
+    "@semantic-release/git": "^10.0.0",
+    "@semantic-release/github": "^8.0.1",
+    "@semantic-release/npm": "^8.0.0",
+    "@semantic-release/release-notes-generator": "^10.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "all-contributors-cli": "^6.20.0",
+    "clean-css-cli": "^5.4.2",
+    "commitizen": "^4.2.4",
+    "concurrently": "^6.3.0",
+    "copyfiles": "^2.4.1",
+    "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-conventional-changelog-emoji": "^0.1.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-unused-imports": "^1.1.5",
+    "http-server": "^13.0.2",
+    "husky": "^7.0.2",
+    "jest": "^27.3.1",
+    "jest-mock-process": "^1.4.1",
+    "jest-stare": "^2.3.0",
+    "node-sass": "^6.0.1",
+    "npm-watch": "^0.11.0",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^18.0.0",
+    "semantic-release-cli": "^5.4.4",
+    "ts-jest": "^27.0.7",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.4",
+    "uglify-js": "^3.14.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog-emoji"
+    }
+  },
+  "release": {
+    "branches": [
+      {
+        "name": "main"
+      },
+      {
+        "name": "beta",
+        "channel": "beta",
+        "prerelease": "beta"
+      }
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "angular",
+          "parserOpts": {
+            "noteKeywords": [
+              "BREAKING CHANGE",
+              "BREAKING CHANGES",
+              "BREAKING"
+            ]
+          }
+        }
+      ],
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "angular",
+          "parserOpts": {
+            "noteKeywords": [
+              "BREAKING CHANGE",
+              "BREAKING CHANGES",
+              "BREAKING"
+            ]
+          },
+          "writerOpts": {
+            "commitsSort": [
+              "subject",
+              "scope"
+            ]
+          }
+        }
+      ],
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md",
+          "changelogTitle": "achievibit changelog"
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md"
+          ]
+        }
+      ],
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ]
   }
 }
