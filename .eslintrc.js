@@ -11,5 +11,8 @@ module.exports = {
     'simple-import-sort',
     'import'
   ],
-  'extends': '@kibibit/eslint-config-javascript'
+  extends: '@kibibit/eslint-config-javascript',
+  rules: {
+    indent: [ 'error', 2 ]
+  }
 };
