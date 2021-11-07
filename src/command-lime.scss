@@ -41,7 +41,7 @@ $s: 12px;
   }
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     top: -18px;
     left: 10px;
@@ -62,4 +62,9 @@ $s: 12px;
   font-size: 16px;
   line-height: 20px;
   font-family: 'Ubuntu Mono', monospace;
+}
+
+/* TODO: Needed? */
+.cmd {
+  display: flex;
 }

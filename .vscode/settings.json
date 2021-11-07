@@ -1,0 +1,32 @@
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.rulers": [120],
+  "editor.matchBrackets": "always",
+  "debug.javascript.autoAttachFilter": "smart",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+  },
+  "eslint.format.enable": true,
+  "bracketPairColorizer.colorMode": "Consecutive",
+  "bracketPairColorizer.forceUniqueOpeningColor": true,
+  "bracketPairColorizer.showBracketsInGutter": true,
+  "window.title": "${activeEditorShort}${separator}${rootName} [kibibit]",
+  "debug.javascript.terminalOptions": {
+    "skipFiles": [
+      "<node_internals>/**"
+    ]
+  },
+  "svg.preview.background": "black",
+  "todotodohighlight.isEnable": true,
+  "todohighlight.keywordsPattern": "TODO(@\\w+?)?:",
+  "todohighlight.defaultStyle": {
+    "color": "black",
+    "backgroundColor": "rgba(255, 221, 87, .8)",
+    "overviewRulerColor": "rgba(255, 221, 87, .8)",
+    "fontWeight": "bold",
+    "borderRadius": "2px",
+    "isWholeLine": true,
+  }
+}
