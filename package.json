@@ -1,6 +1,6 @@
 {
   "name": "@kibibit/command-lime",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0",
   "description": "Show what your CLI application can do using this terminal onboarding mock",
   "main": "dist/command-lime.js",
   "files": [
